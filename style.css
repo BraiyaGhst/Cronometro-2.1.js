@@ -9,6 +9,7 @@ body {
 background-color:#215d9d ;
 font-family: 'Finlandica', sans-serif;
 height: 100%;
+display: flex;
 }
 .wrapper {
     width: 800px;
