@@ -40,3 +40,6 @@ button{
  margin: 10px;
  outline: none;
 }
+@media only screen and (max-width: 768px) {
+
+}
