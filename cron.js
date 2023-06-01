@@ -60,12 +60,12 @@ window.onload = function () {
         if (seconds > 9) {
             appendSeconds.innerHTML = seconds
         }        
-        if (seconds > 59 ) {
+        if (seconds >= 60 ) {
             console.log("minutes");
             minutes++ 
             appendMinutes.innerHTML = "0" + minutes;
-            seconds = 0
-            appendSeconds.innerHTML = "0" + 0
+            seconds = 0;
+            appendSeconds.innerHTML = "0" + seconds;
             }
 
         if (minutes > 9){
