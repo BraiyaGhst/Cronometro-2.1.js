@@ -35,14 +35,14 @@ window.onload = function() {
     if (tens <= 9) {
       appendTens.innerHTML = "0" + tens;
     }
-    if (tens > 9) {
+    if (tens > 9 && tens <= 99) {
       appendTens.innerHTML = tens;
     }
     if (tens > 99) {
       seconds++;
       appendSeconds.innerHTML = "0" + seconds;
       tens = 0;
-      appendTens.innerHTML = "0" + tens;
+      appendTens.innerHTML = "00";
     }
     if (seconds <= 9) {
       appendSeconds.innerHTML = "0" + seconds;
@@ -51,11 +51,10 @@ window.onload = function() {
       minutes++;
       appendMinutes.innerHTML = "0" + minutes;
       seconds = 0;
-      appendSeconds.innerHTML = "0" + seconds;
+      appendSeconds.innerHTML = "00";
     }
     if (minutes > 9) {
       appendMinutes.innerHTML = minutes;
     }
   }
 };
-
