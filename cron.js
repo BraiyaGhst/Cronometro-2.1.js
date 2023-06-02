@@ -1,8 +1,8 @@
 window.onload = function() {
+  let milliseconds = 0;
   let seconds = 0;
-  let tens = 0;
   let minutes = 0;
-  let appendTens = document.getElementById("tens");
+  let appendMilliseconds = document.getElementById("milliseconds");
   let appendSeconds = document.getElementById("seconds");
   let appendMinutes = document.getElementById("minutes");
   let buttonStart = document.getElementById("button-start");
@@ -21,39 +21,40 @@ window.onload = function() {
 
   buttonReset.onclick = function() {
     clearInterval(interval);
-    tens = 0;
+    milliseconds = 0;
     seconds = 0;
     minutes = 0;
-    appendTens.innerHTML = "00";
+    appendMilliseconds.innerHTML = "000";
     appendSeconds.innerHTML = "00";
     appendMinutes.innerHTML = "00";
   };
 
   function startTimer() {
-    tens++;
+    milliseconds++;
 
-    if (tens <= 9) {
-      appendTens.innerHTML = "0" + tens;
+    if (milliseconds <= 9) {
+      appendMilliseconds.innerHTML = "00" + milliseconds;
+    } else if (milliseconds <= 99) {
+      appendMilliseconds.innerHTML = "0" + milliseconds;
+    } else {
+      appendMilliseconds.innerHTML = milliseconds;
     }
-    if (tens > 9 && tens <= 99) {
-      appendTens.innerHTML = tens;
-    }
-    if (tens > 99) {
+
+    if (milliseconds >= 100) {
       seconds++;
       appendSeconds.innerHTML = "0" + seconds;
-      tens = 0;
-      appendTens.innerHTML = "00";
+      milliseconds = 0;
+      appendMilliseconds.innerHTML = "000";
     }
-    if (seconds <= 9) {
-      appendSeconds.innerHTML = "0" + seconds;
-    }
+
     if (seconds >= 60) {
       minutes++;
       appendMinutes.innerHTML = "0" + minutes;
       seconds = 0;
       appendSeconds.innerHTML = "00";
     }
-    if (minutes > 9) {
+
+    if (minutes >= 10) {
       appendMinutes.innerHTML = minutes;
     }
   }
